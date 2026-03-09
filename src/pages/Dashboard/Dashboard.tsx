@@ -1,5 +1,10 @@
+import SideNav from "@/components/SideNav";
 const Dashboard = () => {
-  return <div>dashboard</div>;
+  return (
+    <div>
+      <SideNav />
+    </div>
+  );
 };
 
 export default Dashboard;
