@@ -18,7 +18,7 @@ const SideNav = () => {
   ];
 
   return (
-    <Stack justify={"space-between"} boxShadow="sm" maxW="16rem" h="100vh">
+    <Stack justify={"space-between"} maxW="16rem" bg={"white"}>
       <Box>
         <Heading
           as="h1"

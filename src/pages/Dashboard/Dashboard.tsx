@@ -1,9 +1,14 @@
-import SideNav from "@/components/SideNav";
+import DashboardLayout from "@/components/DashboardLayout";
+import { Box } from "@chakra-ui/react";
+import Portfolio from "./components/Portfolio";
+
 const Dashboard = () => {
   return (
-    <div>
-      <SideNav />
-    </div>
+    <DashboardLayout title="Dashboard">
+      <Box pt="24px">
+        <Portfolio />
+      </Box>
+    </DashboardLayout>
   );
 };
 
