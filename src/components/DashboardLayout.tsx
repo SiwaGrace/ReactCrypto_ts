@@ -22,7 +22,9 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
       </Box>
       <Box flexGrow={"1"}>
         <TopNav title={title} />
-        <Container>{children}</Container>
+        <Container h="88vh" overflow={"scroll"} padding={"14px"}>
+          {children}
+        </Container>
       </Box>
     </Flex>
   );

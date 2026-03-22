@@ -1,4 +1,12 @@
-import { Box, Heading, HStack, Icon, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  HStack,
+  Icon,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { BsArrowDownUp } from "react-icons/bs";
 import { BiSupport } from "react-icons/bi";
@@ -8,7 +16,7 @@ const SideNav = () => {
     {
       icon: <TbLayoutDashboardFilled />,
       title: "Dashboard",
-      link: "/dashboard",
+      link: "/",
     },
     {
       icon: <BsArrowDownUp />,
@@ -46,8 +54,10 @@ const SideNav = () => {
                 color: "black",
               }}
             >
-              <Icon>{item.icon}</Icon>
-              <Text>{item.title}</Text>
+              <Link href={item.link}>
+                <Icon>{item.icon}</Icon>
+                <Text>{item.title}</Text>
+              </Link>
             </HStack>
           ))}
         </Box>
@@ -64,10 +74,12 @@ const SideNav = () => {
             color: "black",
           }}
         >
-          <Icon>
-            <BiSupport />
-          </Icon>
-          <Text>Support</Text>
+          <Link href="/support">
+            <Icon>
+              <BiSupport />
+            </Icon>
+            <Text>Support</Text>
+          </Link>
         </HStack>
       </Box>
     </Stack>
