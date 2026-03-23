@@ -11,7 +11,6 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
   return (
     <Flex>
       <Box
-        h="100vh"
         boxShadow="sm"
         display={{
           base: "none",
@@ -22,7 +21,13 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
       </Box>
       <Box flexGrow={"1"}>
         <TopNav title={title} />
-        <Container h="88vh" overflow={"scroll"} padding={"14px"}>
+        <Container
+          overflowX={"hidden"}
+          overflowY={"auto"}
+          h={"calc(100vh - 64px)"}
+          paddingX={"32"}
+          paddingTop={"6"}
+        >
           {children}
         </Container>
       </Box>

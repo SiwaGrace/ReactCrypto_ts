@@ -19,7 +19,7 @@ const InfoCard = ({
   textcolor,
 }: InfoCard) => {
   return (
-    <Card.Root rounded={"20px"} p={6} bg={cardbg}>
+    <Card.Root w={"100%"} rounded={"20px"} p={6} bg={cardbg}>
       <Box>
         <Tag.Root bg={tagbg} color={labelcolor} rounded={"10px"}>
           <Tag.Label>{taglabel}</Tag.Label>

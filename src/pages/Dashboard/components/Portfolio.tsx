@@ -9,7 +9,7 @@ const Portfolio = () => {
       justifyContent={"space-between"}
       bg={"white"}
       borderRadius={"xl"}
-      p={6}
+      p={5}
       align={{
         base: "flex-start",
       }}
@@ -24,39 +24,49 @@ const Portfolio = () => {
     >
       <Stack>
         <HStack>
-          <Text>Total Portfolio Value</Text>
+          <Text color={"gray.80"}>Total Portfolio Value</Text>
           <Icon as={IoIosInformationCircleOutline} />
         </HStack>
-        <Text>₹ 112,312.24</Text>
+        <Text fontWeight={"semibold"} fontSize={"2xl"}>
+          ₹ 112,312.24
+        </Text>
       </Stack>
       {/*  */}
       <Stack>
-        <Text>Wallet Balance</Text>
-        <HStack>
+        <Text color={"gray.80"}>Wallet Balance</Text>
+        <HStack gap={"8"}>
           <HStack>
-            <Text>22.39401000</Text>
+            <Text fontWeight={"semibold"} fontSize={"2xl"}>
+              22.39401000
+            </Text>
             <Tag.Root>
               <Tag.Label>BTC</Tag.Label>
             </Tag.Root>
           </HStack>
           <HStack>
-            <Text>₹ 1,300.00</Text>
+            <Text fontWeight={"semibold"} fontSize={"2xl"}>
+              ₹ 1,300.00
+            </Text>
             <Tag.Root>
               <Tag.Label>INR</Tag.Label>
             </Tag.Root>
           </HStack>
         </HStack>
       </Stack>
-      {/*  */}
+      {/* buttons */}
       <HStack>
-        <Button h={"30px"}>
-          <Icon as={FaArrowDownLong} />
-          Deposit
-        </Button>
-        <Button h={"30px"}>
-          <Icon as={PiHandWithdrawFill} />
-          Withdraw
-        </Button>
+        {[
+          {
+            icon: FaArrowDownLong,
+            title: "Deposit",
+          },
+          { icon: PiHandWithdrawFill, title: "Withdraw" },
+        ].map((item, index) => (
+          <Button key={index} h={"40px"} bg={"p.purple"} rounded={"xl"}>
+            <Icon as={item.icon} />
+            {item.title}
+          </Button>
+        ))}
       </HStack>
     </HStack>
   );

@@ -4,7 +4,18 @@ const config = defineConfig({
   theme: {
     tokens: {
       colors: {
-        global: {},
+        p: {
+          purple: { value: "#5F00D9" },
+          black: { value: "#171717" },
+        },
+        gray: {
+          5: { value: "#F3F3F7" },
+          10: { value: "#EEEEF4" },
+          20: { value: "#D8DDE2" },
+          40: { value: "#BABACA" },
+          60: { value: "#797E82" },
+          80: { value: "#535D66" },
+        },
       },
       fonts: {
         heading: { value: "Ubuntu, sans-serif" },

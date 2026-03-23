@@ -12,7 +12,7 @@ const TopNav = ({ title }: Props) => {
     <Flex
       bg={"white"}
       boxShadow={"xl"}
-      h={"16"}
+      h={"64px"}
       justify={"space-between"}
       px={"32px"}
       alignItems={"center"}

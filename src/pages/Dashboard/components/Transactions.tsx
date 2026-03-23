@@ -26,7 +26,7 @@ const Transactions = () => {
   ];
   return (
     <Stack gap={6} bg={"white"} p={6}>
-      <Text>Recent Transactions</Text>
+      <Text color={"gray.80"}>Recent Transactions</Text>
 
       {transaction.map((item, index) => (
         <Flex justifyContent={"space-between"} key={index}>
@@ -41,17 +41,26 @@ const Transactions = () => {
             />
             <Stack>
               <Text>{item.title}</Text>
-              <Text>{item.date}</Text>
+              <Text color={"gray.60"}>{item.date}</Text>
             </Stack>
           </HStack>
           <Stack>
-            <Text>{item.amount}</Text>
-            {item.secondamount && <Text>{item.secondamount}</Text>}
+            <Text fontWeight={"semibold"} fontSize={"smd"}>
+              {item.amount}
+            </Text>
+            {item.secondamount && (
+              <Text color={"gray.60"}>{item.secondamount}</Text>
+            )}
           </Stack>
         </Flex>
       ))}
 
-      <Button rounded={"8px"} bg={"gray.200"} color={"black"}>
+      <Button
+        rounded={"8px"}
+        bg={"gray.200"}
+        color={"black"}
+        fontWeight={"semibold"}
+      >
         View All
       </Button>
     </Stack>

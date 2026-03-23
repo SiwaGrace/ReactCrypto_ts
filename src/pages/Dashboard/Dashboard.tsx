@@ -34,7 +34,7 @@ const Dashboard = () => {
         <GridItem colSpan={1}>
           <InfoCard
             cardbg="white"
-            tagbg="purple"
+            tagbg="p.purple"
             taglabel="Loans"
             labelcolor="white"
             text="lorembke"
@@ -43,10 +43,10 @@ const Dashboard = () => {
         </GridItem>
         <GridItem colSpan={1}>
           <InfoCard
-            cardbg="purple"
+            cardbg="p.purple"
             tagbg="white"
             taglabel="Contact"
-            labelcolor="purple"
+            labelcolor="p.purple"
             text="lorembke"
             textcolor="white"
           />

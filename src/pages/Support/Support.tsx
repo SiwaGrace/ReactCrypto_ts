@@ -14,6 +14,7 @@ import {
 import { FaEnvelope } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import InfoCard from "../Dashboard/components/InfoCard";
+// import { BiSolidMessageRounded } from "react-icons/bi";
 
 interface FormValues {
   firstName: string;
@@ -38,7 +39,7 @@ const Support = () => {
         }}
       >
         <Stack maxW={"30rem"}>
-          <Icon as={FaEnvelope} />
+          <Icon as={FaEnvelope} color={"p.purple"} />
           <Text>Contact Us</Text>
           <Text>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
@@ -89,8 +90,30 @@ const Support = () => {
                 <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
               </Checkbox.Root>
 
-              <Button type="submit">Send a Message</Button>
-              <Button type="submit">Book a Meeting</Button>
+              <Button
+                color={"black"}
+                fontWeight={"semibold"}
+                type="submit"
+                _hover={{
+                  bg: "gray.40",
+                  color: "gray.60",
+                }}
+                bg={"gray.20"}
+              >
+                Send a Message
+              </Button>
+              <Button
+                color={"black"}
+                fontWeight={"semibold"}
+                type="submit"
+                _hover={{
+                  bg: "gray.40",
+                  color: "gray.60",
+                }}
+                bg={"gray.20"}
+              >
+                Book a Meeting
+              </Button>
             </Stack>
           </form>
         </Card.Root>
@@ -98,10 +121,12 @@ const Support = () => {
 
       <Flex
         justifyContent={"space-between"}
+        gap={"5"}
         flexDir={{
           base: "column",
           xl: "row",
         }}
+        mt={"8"}
       >
         <InfoCard
           cardbg="transparent"
