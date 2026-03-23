@@ -25,7 +25,9 @@ const SideDrawer = () => {
               {(store) => (
                 <Drawer.Body>
                   <SideNav />
-                  <button onClick={() => store.setOpen(false)}>Close</button>
+                  <button hidden onClick={() => store.setOpen(false)}>
+                    Close
+                  </button>
                 </Drawer.Body>
               )}
             </Drawer.Context>

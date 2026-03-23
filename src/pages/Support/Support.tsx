@@ -10,15 +10,18 @@ import {
   Input,
   Button,
   Checkbox,
+  Textarea,
 } from "@chakra-ui/react";
 import { FaEnvelope } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import InfoCard from "../Dashboard/components/InfoCard";
-// import { BiSolidMessageRounded } from "react-icons/bi";
+import { BiSolidMessageRounded } from "react-icons/bi";
 
 interface FormValues {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
+  email: string;
+  message: string;
 }
 
 const Support = () => {
@@ -40,11 +43,12 @@ const Support = () => {
       >
         <Stack maxW={"30rem"}>
           <Icon as={FaEnvelope} color={"p.purple"} />
-          <Text>Contact Us</Text>
-          <Text>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
-            cumque esse omnis placeat dicta debitis ipsa in sequi itaque
-            corrupti?
+          <Text fontWeight={"semibold"} fontSize={"2xl"}>
+            Contact Us
+          </Text>
+          <Text color={"gray.60"}>
+            Have a question or just want to know more? Feel free to reach out to
+            us.
           </Text>
         </Stack>
         {/*  */}
@@ -55,39 +59,38 @@ const Support = () => {
 
           <form onSubmit={onSubmit}>
             <Stack>
-              <HStack gap="10" width="full">
+              <HStack gap="10" width="full" my={"4"}>
                 <Field.Root required>
-                  <Field.Label>
-                    Email <Field.RequiredIndicator />
-                  </Field.Label>
-                  <Input placeholder="me@example.com" variant="subtle" />
+                  <Field.Label>Name</Field.Label>
+                  <Input placeholder="James" variant="outline" />
                 </Field.Root>
                 <Field.Root required>
-                  <Field.Label>
-                    Email <Field.RequiredIndicator />
-                  </Field.Label>
-                  <Input placeholder="me@example.com" variant="outline" />
+                  <Field.Label>Surname</Field.Label>
+                  <Input placeholder="Arthur" variant="outline" />
                 </Field.Root>
               </HStack>
 
               <Stack gap="4" align="flex-start" maxW="sm">
-                <Field.Root invalid={!!errors.firstName}>
-                  <Field.Label>First name</Field.Label>
-                  <Input {...register("firstName")} />
-                  <Field.ErrorText>{errors.firstName?.message}</Field.ErrorText>
+                <Field.Root invalid={!!errors.email}>
+                  <Field.Label>Email</Field.Label>
+                  <Input {...register("email")} placeholder="name@mail.com" />
+                  <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
                 </Field.Root>
 
-                <Field.Root invalid={!!errors.lastName}>
-                  <Field.Label>Last name</Field.Label>
-                  <Input {...register("lastName")} />
-                  <Field.ErrorText>{errors.lastName?.message}</Field.ErrorText>
+                <Field.Root invalid={!!errors.message}>
+                  <Field.Label>Message</Field.Label>
+                  <Textarea placeholder="Your Message" />
+                  <Field.ErrorText>{errors.message?.message}</Field.ErrorText>
                 </Field.Root>
               </Stack>
 
-              <Checkbox.Root>
+              <Checkbox.Root my={"4"}>
                 <Checkbox.HiddenInput />
                 <Checkbox.Control />
-                <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
+                <Checkbox.Label display={"flex"} gap={2}>
+                  I agree with{" "}
+                  <Text color={"p.purple"}>Terms & Conditions</Text>{" "}
+                </Checkbox.Label>
               </Checkbox.Root>
 
               <Button
@@ -130,15 +133,17 @@ const Support = () => {
       >
         <InfoCard
           cardbg="transparent"
-          tagbg="purple"
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quae."
+          icon={BiSolidMessageRounded}
+          tagbg="p.purple"
+          notRequired="LIVE CHAT"
+          text="Don’t have time to wait for the answer? Chat with us now."
         />
 
         <InfoCard
-          cardbg="purple"
+          cardbg="p.purple"
           tagbg="white"
-          taglabel="chatbox"
-          labelcolor="purple.500"
+          taglabel="Chatbox"
+          labelcolor="p.purple"
           text="chat with us now"
           textcolor="white"
         />

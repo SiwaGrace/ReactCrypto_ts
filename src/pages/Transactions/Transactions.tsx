@@ -10,9 +10,9 @@ import {
   Input,
   InputGroup,
 } from "@chakra-ui/react";
-import { CiExport } from "react-icons/ci";
 import { LuUser } from "react-icons/lu";
 import TransactionTable from "./components/TransactionTable";
+import { AiOutlineDownload } from "react-icons/ai";
 
 const items = [
   {
@@ -41,8 +41,8 @@ const Transactions = () => {
   return (
     <DashboardLayout title="Transactions">
       <Flex justifyContent={"end"} pb={"4"}>
-        <Button>
-          <Icon as={CiExport} />
+        <Button bg={"p.purple"}>
+          <Icon as={AiOutlineDownload} />
           Export CSV
         </Button>
       </Flex>
@@ -54,18 +54,22 @@ const Transactions = () => {
               {items.map((item, index) => (
                 <Tabs.Trigger key={index} value={item.title}>
                   {item.title}
-                  <Tag.Root rounded={"10px"}>
+                  <Tag.Root
+                    rounded={"10px"}
+                    overflowY={"hidden"}
+                    overflowX={"auto"}
+                  >
                     <Tag.Label>{item.count}</Tag.Label>
                   </Tag.Root>
                 </Tabs.Trigger>
               ))}
             </Tabs.List>
             <InputGroup startElement={<LuUser />}>
-              <Input placeholder="Username" />
+              <Input placeholder="Search by ID or destination" />
             </InputGroup>
           </Flex>
           {/*  */}
-          <Box pos="relative" minH="200px" width="full">
+          <Box pos="relative" minH="400px" width="full">
             {items.map((item, index) => (
               <Tabs.Content
                 key={index}

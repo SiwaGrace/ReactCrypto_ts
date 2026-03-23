@@ -25,7 +25,10 @@ const DashboardLayout = ({ title, children }: DashboardLayoutProps) => {
           overflowX={"hidden"}
           overflowY={"auto"}
           h={"calc(100vh - 64px)"}
-          paddingX={"32"}
+          paddingX={{
+            base: "4",
+            md: "32",
+          }}
           paddingTop={"6"}
         >
           {children}

@@ -1,44 +1,64 @@
-import { Table, Tag } from "@chakra-ui/react";
+import { Stack, Table, Tag, Text } from "@chakra-ui/react";
 
 const items = [
   {
     id: "HD82NA2H",
-    date: "2022-06-09",
+    date: {
+      date: "2022-06-09",
+      time: "7:06 PM",
+    },
     type: {
       name: "INR Deposit",
       tag: "E-transfer",
     },
-    amount: "+ ₹ 112,312.24",
+    amount: {
+      amount: "+ ₹ 112,312.24",
+    },
     status: "Pending",
   },
   {
     id: "HD82NG%2H",
-    date: "2022-06-09",
+    date: {
+      date: "2022-06-09",
+      time: "7:06 PM",
+    },
     type: {
       name: "INR Deposit",
-      tag: "E-transfer",
+      tag: "Wire Transfer",
     },
-    amount: "+ ₹ 112,312.24",
+    amount: {
+      amount: "+ ₹ 112,312.24",
+    },
     status: "Processing",
   },
   {
     id: "HD&FGA2H",
-    date: "2022-06-09",
+    date: {
+      date: "2022-06-09",
+      time: "7:06 PM",
+    },
     type: {
       name: "INR Deposit",
-      tag: "E-transfer",
     },
-    amount: "+ ₹ 112,312.24",
+    amount: {
+      amount: "+ ₹ 112,312.24",
+      secondamount: "- 12.34436568 BTC",
+    },
     status: "cancelled",
   },
   {
     id: "HD8VD5A2H",
-    date: "2022-06-09",
+    date: {
+      date: "2022-06-09",
+      time: "7:06 PM",
+    },
     type: {
       name: "INR Deposit",
-      tag: "E-transfer",
     },
-    amount: "+ ₹ 112,312.24",
+    amount: {
+      amount: "+ ₹ 112,312.24",
+      secondamount: "- 12.34436568 BTC",
+    },
     status: "completed",
   },
 ];
@@ -50,7 +70,7 @@ const StatusColor: Record<StatusType, string> = {
   cancelled: "red.400",
   completed: "green.400",
   processing: "yellow.400",
-  pending: "blue.400",
+  pending: "gray.400",
 };
 const TransactionTable = () => {
   const getStatusColor = (status: string): string => {
@@ -72,15 +92,37 @@ const TransactionTable = () => {
           <Table.Row key={item.id}>
             <Table.Cell>{item.id}</Table.Cell>
 
-            <Table.Cell>{item.date}</Table.Cell>
-            <Table.Cell>{item.type.name}</Table.Cell>
-            <Table.Cell textAlign="end">{item.amount}</Table.Cell>
-            <Table.Cell textAlign="end">
+            <Table.Cell>
+              <Stack>
+                <Text>{item.date.date}</Text>
+                <Text color={"gray.60"}>{item.date.time}</Text>
+              </Stack>
+            </Table.Cell>
+
+            <Table.Cell>
+              <Stack>
+                <Text>{item.type.name}</Text>
+                {item.type.tag && (
+                  <Text color={"gray.60"}>{item.type.tag}</Text>
+                )}
+              </Stack>
+            </Table.Cell>
+
+            <Table.Cell>
+              <Stack>
+                <Text>{item.amount.amount}</Text>
+                {item.amount.secondamount && (
+                  <Text color={"gray.60"}>{item.amount.secondamount}</Text>
+                )}
+              </Stack>
+            </Table.Cell>
+            <Table.Cell>
               <Tag.Root
                 rounded={"2xl"}
                 py={"1.5"}
                 px={"4"}
                 bg={getStatusColor(item.status)}
+                color={"white"}
               >
                 <Tag.Label>{item.status}</Tag.Label>
               </Tag.Root>

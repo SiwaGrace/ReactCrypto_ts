@@ -35,7 +35,7 @@ const SideNav = () => {
           fontWeight="bold"
           mt="2rem"
           p={4}
-          color={"purple"}
+          color={"p.purple"}
         >
           @DOSOMECODING
         </Heading>
@@ -69,6 +69,7 @@ const SideNav = () => {
           cursor="pointer"
           py="3"
           px={4}
+          borderRadius={"10px"}
           _hover={{
             bg: "gray.100",
             color: "black",
